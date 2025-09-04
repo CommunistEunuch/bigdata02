@@ -123,3 +123,77 @@ import numpy as np
 
 #----------------------------------------------------------------
 
+# c = np.arange(1, 13)  # 1차원 배열
+#
+# # r = c.reshape(2, 2, 3)  # 3차원 배열형태로 변환
+# r = c.reshape(4, 3)  # 2차원 배열형태로 변환
+# print(c)
+# print(r)
+# f = r.flatten()  # 2차원 배열을 1차원 배열로 변환
+# print(f)
+#
+# # 전치행렬
+# t = r.T
+# print(t)
+#
+# # 단위행렬
+# e1 = np.eye(4)
+# print(e1)
+
+#---------------------------------------------------------------
+
+# d = np.array([4, 25, 9, 16])
+#
+# print(np.sqrt(d))  # 제곱근 square root
+# print(np.exp(d))  # 지수함수 exponent function
+# print(np.log(d))  # 자연로그
+#
+# e = np.array([0, np.pi/2, np.pi])  # [0, 3.14159265/2, 3.14159265]
+# print(e)
+# print(np.sin(e))  # 사인함수
+# print(np.cos(e))  # 코사인함수
+
+#--------------------------------------------------------------
+
+# g = np.array([
+#     [3, 2, 1],
+#     [6, 5, 4]
+# ])
+# print(np.sum(g))
+# print(np.sum(g, axis=0))  # 열 기준을 축으로 더함
+# print(np.sum(g, axis=1))  # 행 기준을 축으로 더함
+#
+# print(np.mean(g))  # 산술평균  21/6
+# print(np.max(g))
+# print(np.min(g))
+# print(np.std(g))  # 표준편차 standard deviation
+
+#----------------------------------------------------------------
+
+# # 조건부 선택과 필터링
+# h = np.arange(1, 6)
+#
+# mask = h > 2
+# print(h[mask])
+#
+# result = np.where(h > 3, h, 0)  # 3보다 큰 값은 그 값 그대로 3이하의 값은 0으로 처리
+# print(result)
+
+#----------------------------------------------------------------
+
+# np.random.seed(50)  # 시드 설정
+#
+# x = np.random.random(5)  # 0 ~ 1 사이의 실수 5개 랜덤 추출
+# print(x)
+# y = np.random.randint(1, 10, 5)  # 1 ~ 9 사이의 정수 5개 랜덤 추출
+# print(y)
+# z = np.random.normal(0, 1, 5)  # 정규분포
+# print(z)
+#
+# # q = np.arange(1, 6)
+# # choice = np.random.choice(q, 3)
+# # print(choice)
+#
+# q = np.array(["가위", "바위", "보"])
+# choice = np.random.choice(q, 2)
+# print(choice)
