@@ -1,21 +1,44 @@
 import pandas as pd
 
-df1 = pd.DataFrame({
-    'A':[1,2,3],
-    'B':[4,5,6],
-    'C':[7,8,9]},
-    index=[1, 2, 3]
-)
-# print(df1)
-# print()
-df2 = pd.DataFrame([
-    [1, 4, 7],
-    [2, 5, 8],
-    [3, 6, 9]
-], columns=['A', 'B', 'C'], index=[1, 2, 3])
-print(df2)
+# df1 = pd.DataFrame({
+#     'A':[1,2,3],
+#     'B':[4,5,6],
+#     'C':[7,8,9]},
+#     index=[1, 2, 3]
+# )
+# # print(df1)
+# # print()
+# df2 = pd.DataFrame([
+#     [1, 4, 7],
+#     [2, 5, 8],
+#     [3, 6, 9]
+# ], columns=['A', 'B', 'C'], index=[1, 2, 3])
+# print(df2)
+#
+# df3 = ((pd.melt(df2)
+#        .rename(columns={'variable':'var', 'value':'val'}))
+#        .query('val > 5'))
+# print(df3)
 
-df3 = ((pd.melt(df2)
-       .rename(columns={'variable':'var', 'value':'val'}))
-       .query('val > 5'))
-print(df3)
+#----------------------------------------------------------
+
+df4 = pd.DataFrame({
+    '날짜':['2025-09-11','2025-09-11','2025-09-12','2025-09-12'],
+    '도시':['서울', '안양','서울','안양'],
+    '온도':[23,22,24,26]
+}, index=[1,2,3,4])
+print(df4)
+
+#------------------------------------------------------------
+df5= df4.pivot(index='날짜', columns='도시', values='온도') #기준을 바꾸는 것을 pivot
+print(df5)
+
+#-----------------------------------------------------------
+df6 = df4.sort_values('온도') #오름차순 asc
+print(df6)
+
+#------------------------------------------------------------
+df7 = df4.sort_values('온도', ascending=False) # 내림차순 desc
+print(df7)
+#-----------------------------------------------------------
+
