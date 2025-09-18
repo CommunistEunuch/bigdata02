@@ -76,3 +76,17 @@ mpg = sns.load_dataset("mpg")
 #print(mpg.isnull())
 #print(mpg[mpg['horsepower'].isnull()])
 
+###중요한 부분이에오
+##1. 결측치 처리 (null이나 NA가 하나라도 있으면 해당하는 데이터 날리기
+#mpg = mpg.dropna()
+#print(mpg[mpg['horsepower'].isnull()])
+#print(mpg.info())
+
+
+##2. 결측치 처리 (null이나 NA가 하나라도 있는 데이터에 값을 넣기 (평균, 표준값))
+#mpg = mpg.fillna(mpg['horsepower'].mean())
+#print(mpg[mpg['horsepower'].isnull()])
+#print(mpg.info())
+
+##결측치 처리시 해당하는 데이터셋 바로 업데이트
+#mpg.fillna(inplace=True)
