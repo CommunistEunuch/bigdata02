@@ -48,3 +48,14 @@ mpg = sns.load_dataset("mpg")
 #정규표현식 mpg.filter(regex='')
 #print(mpg.filter(regex='.me'))
 #print(mpg.filter(regex='p..er'))
+
+
+##print(mpg.value_counts())
+# df = pd.DataFrame({
+#     'city': ['seoul', 'anyang', 'incheon', 'seoul', 'seoul', 'anyang'],
+#     'name': ['tom', 'jerry', 'kim', 'park', 'lee','kim']}
+#     , index=[1, 2, 3, 4, 5, 6])
+# print(df)
+# print(df.value_counts())
+# print(df['city'].nunique())
+
