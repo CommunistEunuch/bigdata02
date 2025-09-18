@@ -18,9 +18,9 @@ df_new = df[['player_id', 'player_name', 'total_pitches','velocity','hrs','so','
 #print(df_new.sort_values(by=['hrs'], ascending=False))
 
 #df_new.plot()
-#오타니 쇼헤이의
-print(df_new.query('player_name == "Ohtani, Shohei"'))
-print(df_new.describe())
+#오타니 쇼헤이의 정보 가져오기
+#print(df_new.query('player_name == "Ohtani, Shohei"'))
+#print(df_new.describe())
 
 # plt.figure(figsize = (10,5))
 # plt.boxplot(df_new['total_pitches'])
@@ -36,3 +36,24 @@ print(df_new.describe())
 ##이거 복습해요
 #print(len(df_new[df_new['total_pitches'] > 1000])) #이게 더 빠름
 #print(len(df_new.query('total_pitches > 1000')))
+
+
+
+import seaborn as sns
+
+#데이터셋 확인
+# print(sns.get_dataset_names())
+# titanic = sns.load_dataset('titanic')
+# print(titanic.head())
+
+#데이터셋 개수
+#print(len(sns.get_dataset_names()))
+
+
+# print(sns.get_dataset_names())
+# titanic = sns.load_dataset('titanic')
+# print(titanic.head())
+# print(titanic.describe())
+# print(titanic.nlargest(5,'age'))
+
+#
