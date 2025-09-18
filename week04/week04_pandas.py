@@ -59,13 +59,20 @@ mpg = sns.load_dataset("mpg")
 # print(df.value_counts())
 # print(df['city'].nunique())
 
-df = pd.DataFrame([
-    [1, 4, 7],
-    [2, 5, 8],
-    [3, 6, 9]
-], columns=['A', 'B', 'C'], index=[1, 2, 3])
 
-print(df)
+##df.apply #람다 사용 가능
+#df = pd.DataFrame([
+#    [1, 4, 7],
+#    [2, 5, 8],
+#    [3, 6, 9]
+#], columns=['A', 'B', 'C'], index=[1, 2, 3])
 
-print(df.apply(lambda x : x*x))
-print(df.apply(lambda z : z**3))
+#print(df) #기본 출력
+#print(df.apply(lambda x : x*x)) #배수 출력
+#print(df.apply(lambda z : z**3)) #세제곱 출력
+
+#결집갑 찾기
+#print(mpg.isnull().sum())
+#print(mpg.isnull())
+#print(mpg[mpg['horsepower'].isnull()])
+
