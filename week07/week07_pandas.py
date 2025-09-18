@@ -56,4 +56,49 @@ import seaborn as sns
 # print(titanic.describe())
 # print(titanic.nlargest(5,'age'))
 
-#
+
+
+#나이대별 산 사람
+titanic = sns.load_dataset('titanic')
+plt.figure(figsize= (15,12))
+
+plt.subplot(2,3,1)
+sns.boxplot(x="survived", data=titanic, y="age")
+plt.title("Age Distribution by Survival Status")
+plt.xlabel("Survived(0:No 1:Yes)")
+plt.ylabel("Age")
+
+
+##성별 확인
+plt.subplot(2,3,2)
+sns.boxplot(x="sex", data=titanic, y="age")
+plt.title("Age Distribution by Gender")
+plt.xlabel("Gender")
+plt.ylabel("Age")
+
+##
+plt.subplot(2,3,3)
+sns.boxplot(x="class", data=titanic, y="fare")
+plt.title("Fare Distribution by Class")
+plt.xlabel("Passinger Class")
+plt.ylabel("Fare")
+
+##
+plt.subplot(2,3,4)
+sns.boxplot(x="survived", data=titanic, y="fare")
+plt.title("Fare Distribution by Survival Status")
+plt.xlabel("Survived(0:No 1:Yes)")
+plt.ylabel("Fare")
+
+##
+plt.subplot(2,3,5)
+sns.boxplot(x="sex", data=titanic, y="age", hue="survived")
+plt.title("Age by Gender and Survival")
+plt.xlabel("Gender")
+plt.ylabel("Age")
+
+handles, labels = plt.gca().get_legend_handles_labels()
+plt.legend(handles, ["No", "Yes"], title="Survived")
+
+
+plt.show()
