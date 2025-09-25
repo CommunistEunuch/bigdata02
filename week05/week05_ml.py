@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
-
+import tglearn as tg
 df = pd.read_csv('lifesat.csv')
 #print(len(df))
 #print(df.tail(3))
@@ -31,4 +31,11 @@ print(f"Life satisfaction(K-NN Model: {model2.predict(new_instance2)[0][0]:.1f}"
 # plt.axis([23_500, 62_500, 4, 9])
 # plt.show()
 
+model3 = tg.LinearRegression()
+model4 = tg.KNeighborsRegressor(3)
 
+model3.fit(X, y)
+model4.fit(X, y)
+
+print(model3.predict(new_instance2))
+print(model4.predict(new_instance2))
