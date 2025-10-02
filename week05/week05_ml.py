@@ -23,7 +23,7 @@ new_instance2 = [[31_721.3]] # 2020 GDP Korea,Republic of
 print(model1.predict(new_instance)) #Linear
 print(model2.predict(new_instance)) #K-NN
 
-print(f"Life satisfaction(Linear Regression Model : {model1.predict(new_instance2)[0][0]:.1f}") #Linear
+print(f"Life satisfaction(Linear Regression Model : {model1.predict(new_instance2)[0][0]:.1f}") #LinearRegression
 print(f"Life satisfaction(K-NN Model: {model2.predict(new_instance2)[0][0]:.1f}") #K-NN
 
 #print(X)
@@ -34,8 +34,8 @@ print(f"Life satisfaction(K-NN Model: {model2.predict(new_instance2)[0][0]:.1f}"
 model3 = tg.LinearRegression()
 model4 = tg.KNeighborsRegressor(3)
 
-model3.fit(X, y)
-model4.fit(X, y)
+model3.fit(X, y) #학습
+model4.fit(X, y) #학습
 
-print(model3.predict(new_instance2))
-print(model4.predict(new_instance2))
+print(model3.predict(new_instance2)) #결과
+print(model4.predict(new_instance2)) #결과
