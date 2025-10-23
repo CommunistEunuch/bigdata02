@@ -6,7 +6,7 @@ import numpy as np
 
 #zeros 함수
 #zeros = np.zeros((3,4))
-#zeros = np.array([[0,0,0,0],[0,0,0,0],[0,0,0,0]], dtype=float)
+#zeros = np.array([[0,0,    0,0],[0,0,0,0],[0,0,0,0]], dtype=float)
 
 
 #다 채워서 넣는 방법
