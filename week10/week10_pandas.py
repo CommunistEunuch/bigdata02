@@ -28,3 +28,5 @@ print(pd.cut(german['Age'], bins=ages).reset_index().groupby('Age').count())
 print(pd.cut(german['Age'], bins=ages,right=False).reset_index().groupby('Age').count())
 
 #--------------------
+#qcut : quantity cut
+
