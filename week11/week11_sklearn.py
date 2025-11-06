@@ -68,5 +68,26 @@ plt.title('Histogram of Diabetes Progression (target)')
 plt.xlabel('Diabetes Progression')
 plt.ylabel('frequency')
 plt.show()
-
 #커널 밀도 함수로도 만들 수 있음 (추세선)
+
+
+corr = df_diabetes.corr() #correlation (상관 관계)
+print(corr)
+#bmi지수가 target에서 제일 높음
+#좋은 콜레스테롤이 제일 target에서 멈
+
+#히트맵 만들기
+#당뇨병 데이터셋 상관관계 히트맵
+plt.figure(figsize=(12,10))
+sns.heatmap(corr)
+plt.show()
+
+#데이터셋 각 블럭 수치화
+plt.figure(figsize=(12,10))
+sns.heatmap(corr, cmap="coolwarm", annot=True)
+plt.show()
+
+#꾸미기
+plt.figure(figsize=(12,10))
+sns.heatmap(corr, cmap="coolwarm", annot=True, fmt='.2f', linewidths=0.7)
+plt.show()
