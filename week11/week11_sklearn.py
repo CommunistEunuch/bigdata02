@@ -13,7 +13,7 @@ from sklearn.datasets import load_diabetes
 
 diabetes = load_diabetes()
 #print(diabetes.feature_names)
-print(diabetes)
+#print(diabetes)
 #print(type(diabetes))
 
 #print(diabetes.info()) #판다스 데이터 프레임이 아님.
@@ -25,4 +25,11 @@ print(diabetes)
 
 #데이터프레임 변환
 #columns를 이미 있는 기준들을 가지고와서 적용
-df_diabetes = pd.DataFrame(diabetes.data, columns=diabetes.features)
+df_diabetes = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
+df_diabetes['target'] = diabetes.target
+print(df_diabetes.info())
+
+#지금 데이터가 z분포로 데이터가 변환이 되어있음 (스케일링: 표준평균분포도)
+#(평균 분포를 0으로 기준잡아 고르게 분배시킴)
+
+print(df_diabetes['age'].describe())
