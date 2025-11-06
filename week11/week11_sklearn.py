@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.pyplot import xlabel
 from sklearn.datasets import load_diabetes
 
 #당뇨병 데이터셋 로딩
@@ -32,4 +33,40 @@ print(df_diabetes.info())
 #지금 데이터가 z분포로 데이터가 변환이 되어있음 (스케일링: 표준평균분포도)
 #(평균 분포를 0으로 기준잡아 고르게 분배시킴)
 
-print(df_diabetes['age'].describe())
+#print(df_diabetes['age'].describe())
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+axes[0, 0].hist(df_diabetes['s1'],bins=100) #빈도수 체크
+axes[0, 0].set_title('Diabetes Data : TC distribution')
+axes[0, 0].set_xlabel('Tc')
+axes[0, 0].set_ylabel('Frequency')
+
+#
+axes[0, 1].boxplot([df_diabetes['s1'],df_diabetes['s2'],df_diabetes['s3']])
+axes[0, 1].set_title('Diabetes Data : Boxplot')
+axes[0, 1].set_xticklabels(['TC','LDL','HDL'])
+
+#콜레스테롤의 수치와 당뇨와의 상관관계
+axes[1, 0].scatter(df_diabetes['s1'],df_diabetes['target'], color='coral')
+axes[1, 0].set_title('Diabetes Data : TC vs Progression')
+axes[1,0].set_xlabel('')
+axes[1,0].set_ylabel('')
+#co-relation (상관 관계) (양이냐 음이냐)
+
+#bmi지수에 따른 당뇨와의 상관관계
+axes[1, 1].scatter(df_diabetes['bmi'],df_diabetes['target'], color='green', alpha=0.5)
+axes[1, 1].set_title('Diabetes Data : bmi vs Progression')
+axes[1, 1].set_xlabel('bmi')
+axes[1, 1].set_ylabel('progression')
+
+plt.show()
+
+#
+plt.figure(figsize=(12,8))
+sns.histplot(df_diabetes['target'], color='blue',bins=10, kde=True)
+plt.title('Histogram of Diabetes Progression (target)')
+plt.xlabel('Diabetes Progression')
+plt.ylabel('frequency')
+plt.show()
+
+#커널 밀도 함수로도 만들 수 있음 (추세선)
