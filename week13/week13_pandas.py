@@ -18,4 +18,8 @@ print(apple['2022-06-14':'2022-06-16'])
 print(apple['2022-04':'2022-06'])
 #index로 바꿔놓았기 때문에 가능한 것이다
 
+print(apple['Open'])
+apple= apple.resample('7d').mean()
+print(apple['Open'])
 
+apple= apple.resample('1M').mean()
