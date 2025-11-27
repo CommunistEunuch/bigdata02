@@ -25,6 +25,8 @@ pi['standard1'] = pi.groupby('inspection_step')['value'].transform(lambda x: (x-
 #print(pi.head())
 #print(pi.groupby('inspection_step')['value'].describe()) #groupby 놓치지마요
 
+#값이 완전 일치는 없음
+#print(pi[pi['standard1'] == 0])
 #표준정규분포의 -부분만 보고 싶다
 #print(pi[pi['standard1']<0])
 #그 반대
@@ -43,3 +45,39 @@ pi['standard2'] = pi['value'] - temp
 print(pi['standard2'])
 
 pi = pi.reset_index()
+#-------------------------------------------------
+
+pr = pd.read_csv('product.csv')
+# print(pr.info())
+# print(pr.describe())
+# print(pr.tail(3))
+# print(pr.head(3))
+
+#차대번호에서 작업자
+
+print(pr['operator'].unique())
+print(pr['process'].unique())
+print(pr['factory'].unique())
+print(pr.tail(3))
+print(pr.head(3))
+
+#생산 공정에서의 책임자를 _로 한 문장으로 볼 수 있게 만듦
+#product_id를 기준으로 operator ---> path
+pr['path'] = pr.groupby('product_id')['operator'].transform(lambda x: '_'.join(x))
+print(pr.head(6))
+
+#차대번호 포함
+pr['path'] = pr['factory'] + '_' + pr['path']
+print(pr.head(6))
+
+#id가 항상 3개인걸 하나로 묶어버림
+pr = pr.drop_duplicates('product_id')
+print(pr)
+
+#간략화
+pr = pr[['date', 'product_id', 'passfail', 'path']]
+print(pr)
+
+#갯수를 셀 겁니다
+print(pr.groupby('passfail')['path'].value_counts())
+
