@@ -81,3 +81,38 @@ print(pr)
 #갯수를 셀 겁니다
 print(pr.groupby('passfail')['path'].value_counts())
 
+#------------------------#분기점___________________
+#factory 만들기
+pr['factory'] =pr['path'].map(lambda x: x[0:2]) #factory코드만 추출
+#print(pr.tail())
+
+#factory 분리
+pr['path'] = pr['path'].map(lambda x : x[3: ]) #slice 3열부터 끝까지 추출
+#print(pr)
+
+#split _ 로 해서 분리시키기 (구분자 _로 리스트로 리턴)
+pr['path'] = pr['path'].map(lambda x : x.split('_'))
+#print(pr)
+
+#path칼럼의 데이터를 기준으로 행으로 분리 (1-> 3)
+pr = pr.explode('path')
+print(pr.tail(15))
+
+#process가 모호하여 map을 가지고 path의 값을 기준으로 3가지의 구분을 지어 재생성
+process_map = { # map : dictionary로 표현
+    '1':'P1',
+    '2':'P1',
+    'V':'P2',
+    'W':'P2',
+    'X':'P3',
+    'Y':'P3'
+}
+pr['process'] = pr['path'].map(process_map)
+print(pr)
+
+#rename 함수를 이용하여 컬럼의 이름 바꾸기
+pr = pr.rename({'path':'operator'}, axis =1)
+print(pr)
+
+#----------------------------------------------------------
+
